@@ -1,0 +1,16 @@
+
+*Debug*
+
+rspec
+vagrant
+
+*Featurs*
+check_parameters
+agent_ports
+debug_log
+ipaddresses
+host_check_commands
+host_groups
+service_groups
+and others
+
