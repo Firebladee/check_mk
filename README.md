@@ -12,51 +12,51 @@ This recipe will install the check_mk agent on target machines and will update t
 Clients
 TO add a new agent.
 ```
-class { "check_mk":
-	install		=> "agent",
-	omd_site	=> "ALL",
+class { 'check_mk':
+	install  => 'agent',
+	omd_site => 'ALL',
 }
 ```
 
 To add parents
 ```
-class { "check_mk":
-	install		=> "agent",
-	omd_site	=> "ALL",
-	parents		=> "172.18.145.11"
+class { 'check_mk':
+	install  => 'agent',
+	omd_site => 'ALL',
+	parents  => '172.18.145.11',
 }
 ```
 
 To add tags
 ```
-class { "check_mk":
-	install		=> "agent",
-	omd_site	=> ["ALL", "DEV2"],
-	check_mk_tags	=> ["SSH", "Management"]
+class { 'check_mk':
+	install		    => 'agent',
+	omd_site    	=> ['ALL', 'DEV2'],
+	check_mk_tags	=> ['SSH', 'Management'],
 }
 ```
 
 For host alias
 ```
-class { "check_mk":
-	install		=> "agent",
-	omd_site	=> "ALL",
-	check_mk_alias	=> "This server does nothing"
+class { 'check_mk':
+	install        => 'agent',
+	omd_site       => 'ALL',
+	check_mk_alias => 'This server does nothing',
 }
 ```
 
 Server
 To add the server
 ```
-class { "check_mk":
-	install		=> "server",
-	omd_site	=> ["DEV1, "ALL"]
+class { 'check_mk':
+	install  => 'server',
+	omd_site => ['DEV1', 'ALL'],
 }
 ```
 
 If you add the omd recipe then puppet will create the sites for you.
 ```
-$omd_site	= ["DEV1", "ALL"]
+$omd_site	= ['DEV1', 'ALL']
 include omd
 include omd::site::add
 ```
