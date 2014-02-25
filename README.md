@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Firebladee/check_mk.png?branch=master)](https://travis-ci.org/Firebladee/check_mk)
+
+
 Check_mk
 
 Created by Fireblade
