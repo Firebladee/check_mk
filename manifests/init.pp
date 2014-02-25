@@ -53,7 +53,7 @@ class check_mk (
       Debian:{ package { 'check-mk-agent': ensure => latest}}
       default: {notify{'OS not support for check_mk agent':}}
     }
-    
+
     check_mk::agent { $omd_site: }
   }
 
