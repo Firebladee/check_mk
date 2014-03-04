@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/Firebladee/check_mk.png?branch=master)](https://travis-ci.org/Firebladee/check_mk)
-
+[![endorse](https://api.coderwall.com/firebladee/endorsecount.png)](https://coderwall.com/firebladee)
 
 ## Check_mk
 
