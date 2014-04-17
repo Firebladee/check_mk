@@ -9,7 +9,6 @@ class check_mk (
 ) inherits check_mk::params {
 
   if $check_mk::install == 'agent' or $check_mk::install == 'server'{
-# include test::agent_test
 
 #    class{'xinetd': }
 
@@ -29,11 +28,6 @@ class check_mk (
 #      source  => 'puppet:///check_mk/check_mk'
 #    }
 
-#    file { '/usr/lib/nagios/plugins/check_icmp':
-#      mode    => '4755',
-#      require => Package['nagios-plugins-setuid'],
-#    }
-
 #    file { "/tmp/${check_mk_agent}":
 #      ensure => present,
 #      path   => "/tmp/${check_mk_agent}",
@@ -44,6 +38,12 @@ class check_mk (
     #FIXME: Move to agent.pp
     case $::osfamily {
       RedHat:{
+        file { "/tmp/${check_mk_agent}":
+          ensure => present,
+          path   => "/tmp/${check_mk_agent}",
+          source => "puppet:///check_mk/${check_mk_agent}"
+        }
+
         exec { "rpm -i /tmp/${check_mk_agent}":
           cwd     => '/tmp',
           creates => '/usr/bin/check_mk_agent',
