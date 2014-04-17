@@ -37,7 +37,11 @@ class check_mk (
       default: {notify{'OS not support for check_mk agent':}}
     }
 
-    check_mk::agent { $omd_site: }
+    check_mk::agent { $omd_site: 
+      omd_site_home           => $omd_site_home,
+      check_mk_location       => $check_mk_location,
+      check_mk_agent_location => $check_mk_agent_location,
+    }
   }
 
   if $check_mk::install == 'server' {
