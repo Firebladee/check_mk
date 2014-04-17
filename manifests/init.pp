@@ -41,7 +41,7 @@ class check_mk (
         file { "/tmp/${check_mk_agent}":
           ensure => present,
           path   => "/tmp/${check_mk_agent}",
-          source => "puppet:///check_mk/${check_mk_agent}"
+          source => "puppet:///modules/check_mk/${check_mk_agent}"
         }
 
         exec { "rpm -i /tmp/${check_mk_agent}":
