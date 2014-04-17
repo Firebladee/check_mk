@@ -26,11 +26,12 @@ class check_mk (
           path   => "/tmp/${check_mk_agent}",
           source => "puppet:///modules/check_mk/${check_mk_agent}",
         }
+        package { 'xinetd': ensure => latest}
 
         exec { "rpm -i /tmp/${check_mk_agent}":
           cwd     => '/tmp',
           creates => '/usr/bin/check_mk_agent',
-          require => File["/tmp/${check_mk_agent}"],
+          require => [File["/tmp/${check_mk_agent}"],Package['xinetd']],
         }
       }
       Debian:{ package { 'check-mk-agent': ensure => latest}}
