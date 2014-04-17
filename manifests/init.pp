@@ -23,13 +23,14 @@ class check_mk (
       RedHat:{
         file { "/tmp/${check_mk_agent}":
           ensure => present,
-          path => "/tmp/${check_mk_agent}",
-          source => "puppet:///modules/check_mk/${check_mk_agent}"
+          path   => "/tmp/${check_mk_agent}",
+          source => "puppet:///modules/check_mk/${check_mk_agent}",
         }
 
         exec { "rpm -i /tmp/${check_mk_agent}":
-          cwd => '/tmp',
+          cwd     => '/tmp',
           creates => '/usr/bin/check_mk_agent',
+          require => File["/tmp/${check_mk_agent}"],
         }
       }
       Debian:{ package { 'check-mk-agent': ensure => latest}}
