@@ -10,6 +10,7 @@ class check_mk (
 
   if $check_mk::install == 'agent' or $check_mk::install == 'server'{
 
+    $check_mk_agent          = 'check_mk-agent-1.2.2p3-1.noarch.rpm'
     $omd_site_home           = "/opt/omd/sites/${omd_site}"
     $check_mk_location       = "${omd_site_home}/etc/check_mk"
     $check_mk_agent_location = "${check_mk_location}/agents"
@@ -19,7 +20,18 @@ class check_mk (
     #TODO: Add details for different os
     #FIXME: Move to agent.pp
     case $::osfamily {
-      RedHat:{ package { 'check_mk': ensure => latest}}
+      RedHat:{
+        file { "/tmp/${check_mk_agent}":
+          ensure => present,
+          path => "/tmp/${check_mk_agent}",
+          source => "puppet:///modules/check_mk/${check_mk_agent}"
+        }
+
+        exec { "rpm -i /tmp/${check_mk_agent}":
+          cwd => '/tmp',
+          creates => '/usr/bin/check_mk_agent',
+        }
+      }
       Debian:{ package { 'check-mk-agent': ensure => latest}}
       default: {notify{'OS not support for check_mk agent':}}
     }
