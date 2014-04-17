@@ -47,7 +47,7 @@ class check_mk (
         exec { "rpm -i /tmp/${check_mk_agent}":
           cwd     => '/tmp',
           creates => '/usr/bin/check_mk_agent',
-          require => Package['xinetd']
+#          require => Package['xinetd']
         }
       }
       Debian:{ package { 'check-mk-agent': ensure => latest}}
