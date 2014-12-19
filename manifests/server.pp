@@ -1,9 +1,7 @@
 # /etc/puppet/modules/check_mk/manifests/init.pp
 
 define check_mk::server {
-# notify { "omd site = $name": }
   $omd_site_home           = "/opt/omd/sites/${name}"
-# notify { "omd site home = $omd_site_home": }
   $check_mk_location       = "${omd_site_home}/etc/check_mk"
   $check_mk_agent_location = "${check_mk_location}/agents"
 
