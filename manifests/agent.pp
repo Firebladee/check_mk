@@ -1,7 +1,7 @@
 # Document me
 
 define check_mk::agent (
-  $check_mk_tags
+  $check_mk_tags,
 #  $check_mk_tags  = $check_mk::params::check_mk_tags,
   $check_mk_alias = $check_mk::params::check_mk_alias,
 
