@@ -17,10 +17,10 @@ class check_mk::params {
     default => $::check_mk_parents,
   }
 
-  $check_mk_tags = $::check_mk_check_mk_tags ? {
-    ''      => '',  # Default value
-    default => $::check_mk_check_mk_tags,
-  }
+#  $check_mk_tags = $::check_mk_check_mk_tags ? {
+#    ''      => '',  # Default value
+#    default => $::check_mk_check_mk_tags,
+#  }
 
   $check_mk_alias = $::check_mk_check_mk_alias ? {
     ''      => '',  # Default value

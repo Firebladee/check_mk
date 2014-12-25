@@ -4,7 +4,8 @@ class check_mk (
   $omd_site       = $check_mk::params::omd_site,
   $install        = $check_mk::params::install,
   $parents        = $check_mk::params::parents,
-  $check_mk_tags  = $check_mk::params::check_mk_tags,
+  $check_mk_tags  = '',
+#  $check_mk_tags  = $check_mk::params::check_mk_tags,
   $check_mk_alias = $check_mk::params::check_mk_alias,
 ) inherits check_mk::params {
 
@@ -42,6 +43,7 @@ class check_mk (
       omd_site_home           => $omd_site_home,
       check_mk_location       => $check_mk_location,
       check_mk_agent_location => $check_mk_agent_location,
+      check_mk_tags           => $check_mk_tags,
     }
   }
 
