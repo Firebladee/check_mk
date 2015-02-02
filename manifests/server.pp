@@ -4,10 +4,10 @@ define check_mk::server {
   $omd_site_home           = "/opt/omd/sites/${name}"
   $check_mk_location       = "${omd_site_home}/etc/check_mk"
   $check_mk_agent_location = "${check_mk_location}/agents"
-  $define_hostgroups       = true
-  $generate_hostconf       = true
-  $aggregate_check_mk      = true
-  $define_servicegroups    = true
+  $define_hostgroups       = 'True'
+  $generate_hostconf       = 'True'
+  $aggregate_check_mk      = 'True'
+  $define_servicegroups    = 'True'
 
 # $check_mk_server_flag = "/var/lock/check_mk_server"
 # $check_mk_server_version = "check_mk-1.1.12p3"
