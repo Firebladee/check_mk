@@ -39,14 +39,14 @@ define check_mk::server {
     recurse => true,
     notify  => Exec["check_mk_parents_${name}"],
   }
-#  file { "${check_mk_location}/main.mk":
-#    ensure  => present,
-#    path    => "${check_mk_location}/main.mk",
-#    mode    => '0644',
-#    owner   => $name,
-#    group   => $name,
-#    content => template('check_mk/main.mk.erb'),
-#  }
+  file { "${check_mk_location}/main.mk":
+    ensure  => present,
+    path    => "${check_mk_location}/main.mk",
+    mode    => '0644',
+    owner   => $name,
+    group   => $name,
+    content => template('check_mk/main.mk.erb'),
+  }
 
 #  file { "${check_mk_location}/conf.d/conf-contact.mk":
 #    ensure => present,
