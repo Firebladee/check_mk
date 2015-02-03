@@ -10,13 +10,18 @@ generate_hostconf = <%= generate_hostconf %>
 aggregate_check_mk = <%= aggregate_check_mk %>
 define_servicegroups = <%= define_servicegroups %>
 <%# all_hosts needs to be converted to an array %>
+<% if all_hosts.empty? -%>
 all_hosts = [ ]
+<% else %>
+all_hosts = [<%= all_hosts.join(",") %>]
 <%# check_parameters needs to be a hash %>
+<% if !check_parameters.empty? -%>
 check_parameters = [
-
+<%# check_parameters.each do |something| -%>
 ( (90, 95), ALL_HOSTS, [ "fs_/" ] ),
-
+<%# end -%>
 ]
+<% end -%>
 <%# filesystem_default_levels needs to be a hash %>
 filesystem_default_levels = {
 	"trend_perc" : (20,30),
