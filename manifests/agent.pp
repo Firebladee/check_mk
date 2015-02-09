@@ -8,7 +8,33 @@ define check_mk::agent (
   $omd_site_home           = "/opt/omd/sites/${name}",
   $check_mk_location       = "${omd_site_home}/etc/check_mk",
   $check_mk_agent_location = "${check_mk_location}/agents",
+  $check_mk_agent          = 'check_mk-agent-1.2.2p3-1.noarch.rpm',
+  $omd_site_home           = "/opt/omd/sites/${omd_site}",
+  $check_mk_location       = "${omd_site_home}/etc/check_mk",
+  $check_mk_agent_location = "${check_mk_location}/agents",
+
 ){
+
+  #TODO: Add details for different os
+  #FIXME: Move to agent.pp
+  case $::osfamily {
+    RedHat:{
+      file { "/tmp/${check_mk_agent}":
+        ensure => present,
+        path   => "/tmp/${check_mk_agent}",
+        source => "puppet:///modules/check_mk/${check_mk_agent}",
+      }
+      package { 'xinetd': ensure => latest}
+
+      exec { "rpm -i /tmp/${check_mk_agent}":
+        cwd     => '/tmp',
+        creates => '/usr/bin/check_mk_agent',
+        require => [File["/tmp/${check_mk_agent}"],Package['xinetd']],
+      }
+    }
+    Debian:{ package { 'check-mk-agent': ensure => latest}}
+    default: {notify{'OS not support for check_mk agent':}}
+  }
 
   @@file {
     "${check_mk_location}/conf.d/main/${::hostname}.mk":
