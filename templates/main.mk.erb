@@ -17,9 +17,11 @@ all_hosts = [<%= all_hosts.join(",") %>]
 <%# check_parameters needs to be a hash %>
 <% if !check_parameters.empty? -%>
 check_parameters = [
+<% else %>
 <%# check_parameters.each do |something| -%>
 ( (90, 95), ALL_HOSTS, [ "fs_/" ] ),
 <%# end -%>
+<% end -%>
 ]
 <% end -%>
 <%# filesystem_default_levels needs to be a hash %>
