@@ -9,9 +9,6 @@ define check_mk::agent (
   $check_mk_location       = "${omd_site_home}/etc/check_mk",
   $check_mk_agent_location = "${check_mk_location}/agents",
   $check_mk_agent          = 'check_mk-agent-1.2.2p3-1.noarch.rpm',
-  $omd_site_home           = "/opt/omd/sites/${omd_site}",
-  $check_mk_location       = "${omd_site_home}/etc/check_mk",
-  $check_mk_agent_location = "${check_mk_location}/agents",
 
 ){
 
