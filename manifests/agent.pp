@@ -6,7 +6,7 @@ define check_mk::agent (
   $check_mk_alias = '', #$check_mk::params::check_mk_alias,
 
   $omd_site_home           = "/opt/omd/sites/${name}",
-  $check_mk_location       = "${omd_site_home}/etc/check_mk",
+  $check_mk_location       = "/etc/check_mk",
   $check_mk_agent_location = "${check_mk_location}/agents",
   $check_mk_agent          = 'check_mk-agent-1.2.2p3-1.noarch.rpm',
 
@@ -34,7 +34,7 @@ define check_mk::agent (
   }
 
   @@file {
-    "${check_mk_location}/conf.d/main/${::hostname}.mk":
+    "${omd_site_home}/${check_mk_location}/conf.d/main/${::hostname}.mk":
       ensure  => file,
       content => template('check_mk/main.erb'),
       tag     => 'check_mk_remote'
