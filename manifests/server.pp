@@ -8,6 +8,7 @@ define check_mk::server {
   $generate_hostconf       = 'True'
   $aggregate_check_mk      = 'True'
   $define_servicegroups    = 'True'
+  $all_hosts               = ''
 
 # $check_mk_server_flag = "/var/lock/check_mk_server"
 # $check_mk_server_version = "check_mk-1.1.12p3"
