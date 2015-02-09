@@ -21,7 +21,7 @@ class check_mk (
     check_mk::agent { $omd_site:
       omd_site_home           => $omd_site_home,
       check_mk_location       => $check_mk_location,
-      check_mk_agent_location => $check_mk_agent_location,
+#      check_mk_agent_location => $check_mk_agent_location,
       check_mk_tags           => $check_mk_tags,
       check_mk_agent          => $check_mk_agent,
     }
