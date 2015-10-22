@@ -11,6 +11,6 @@ class check_mk::check_yum {
     mode   => '0711',
     owner  => root,
     group  => root,
-    source => 'puppet:///check_mk/check_yum',
+    source => "puppet:///check_mk/${module_name}/check_yum",
   }
 }

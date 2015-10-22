@@ -22,4 +22,12 @@ describe 'check_mk' do
 #    end
 #  end
 
+  it { should contain_class('check_mk')}
+
+  context 'server' do
+    let(:fact) {{:install => 'server'}}
+    it { should contain_class('check_mk::server')}
+  end
+  it { should contain_class('check_mk::agent')}
+
 end

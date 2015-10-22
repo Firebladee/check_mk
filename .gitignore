@@ -1,1 +1,9 @@
 pkg
+coverage
+.bundle/
+Gemfile.lock
+
+## VIM
+*.swp
+
+.rake_tasks~
