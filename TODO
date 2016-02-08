@@ -2,7 +2,7 @@
 *Debug*
 
 rspec
-vagrant
+test-kitchen
 
 *Featurs*
 check_parameters

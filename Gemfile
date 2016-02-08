@@ -10,3 +10,4 @@ gem 'serverspec'
 gem 'kitchen-puppet'
 gem 'kitchen-vagrant'
 gem 'librarian-puppet'
+gem 'coveralls', require: false

@@ -1,0 +1,23 @@
+---
+driver:
+  name: vagrant
+#  vagrantfiles:
+#    - cache.rb
+
+provisioner:
+  name: puppet_apply
+  require_chef_for_busser: false
+  manifests_path: test
+  hiera_data_path: hieradata
+
+platforms:
+  - name: centos-7.0
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 4567}]
+
+suites:
+  - name: default
+
+verifier:
+  ruby_bindir: '/usr/bin'

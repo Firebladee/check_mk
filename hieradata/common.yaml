@@ -1,0 +1,14 @@
+---
+classes:
+  - omd
+  - yumrepos
+
+yumrepos::repos:
+  omd:
+    descr: 'labs_consol_stable'
+    baseurl: 'http://labs.consol.de/repo/stable/rhel7/$basearch'
+    gpgkey: 'http://labs.consol.de/repo/stable/RPM-GPG-KEY'
+#  epel:
+#    descr: 'Extra Packages for Enterprise Linux 7 - x86_64'
+#    baseurl: 'http://download.fedoraproject.org/pub/epel/7/$basearch'
+#    gpgkey: '/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
