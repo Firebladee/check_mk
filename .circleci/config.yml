@@ -6,11 +6,11 @@ workflows:
     jobs:
       - validate
       - lint:
-        requires:
-          - validate
+          requires:
+            - validate
       - rubocop:
-        requires:
-          - validate
+          requires:
+            - validate
 
 jobs:
   validate:
