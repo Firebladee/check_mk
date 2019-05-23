@@ -1,9 +1,16 @@
 version: 2
 jobs:
-  build:
+  lint:
     docker:
       - image: ruby:2.2.6
     steps:
       - checkout
       - run: bundle install
-      - run: rspec-puppet-init
+      - run: rake lint
+  validate:
+    docker:
+      - image: ruby:2.2.6
+    steps:
+      - checkout
+      - run: bundle install
+      - run: rake validate
