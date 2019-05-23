@@ -1,4 +1,12 @@
 version: 2
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - lint
+      - validate
+
 jobs:
   lint:
     docker:
