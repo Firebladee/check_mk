@@ -2,7 +2,7 @@
 
 class check_mk (
 #  $omd_site       = 'ALL',
-#  $install        = 'agent',
+  $install        = 'agent',
 #  $parents        = '',
 #  $check_mk_tags  = '',
 #  $check_mk_tags  = '',
@@ -12,12 +12,12 @@ class check_mk (
 #  $check_mk_location       = "${omd_site_home}/etc/check_mk",
 #  $check_mk_agent_location = "${check_mk_location}/agents",
 
-#  $hash = [],
+  $hash = [],
 
 )
 {
 
-  if $check_mk::install == 'agent' or $check_mk::install == 'server'{
+  if $install == 'agent' or $install == 'server'{
     create_resource('check_mk::agent', $hash)
 
 #    check_mk::agent { $omd_site:

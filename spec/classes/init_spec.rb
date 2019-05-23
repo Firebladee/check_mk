@@ -18,7 +18,6 @@ describe 'check_mk' do
    context 'with ::osfamily => RedHat' do
       let(:params) { {:check_mk_agent => 'check_mk-agent-1.2.2p3-1.noarch.rpm'} }
       it { should contain_package('xinetd').with_ensure('latest')}
-      
     end
   end
 

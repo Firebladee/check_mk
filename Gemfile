@@ -11,6 +11,7 @@ gem 'kitchen-puppet'
 gem 'kitchen-vagrant'
 gem 'librarian-puppet'
 gem 'coveralls', require: false
+gem 'rspec-puppet-facts', require: false
 
 gem 'beaker'
 gem 'beaker-puppet_install_helper'
