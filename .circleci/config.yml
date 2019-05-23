@@ -5,12 +5,12 @@ workflows:
   test:
     jobs:
       - validate
-      - lint
-          requires:
-            - validate
-      - rubocop
-          requires:
-            - validate
+      - lint:
+        requires:
+          - validate
+      - rubocop:
+        requires:
+          - validate
 
 jobs:
   validate:
