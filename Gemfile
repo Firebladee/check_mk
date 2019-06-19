@@ -11,3 +11,13 @@ gem 'kitchen-puppet'
 gem 'kitchen-vagrant'
 gem 'librarian-puppet'
 gem 'coveralls', require: false
+gem 'rspec-puppet-facts', require: false
+gem 'metadata-json-lint'
+
+gem 'beaker'
+gem 'beaker-puppet_install_helper'
+gem 'beaker-rspec'
+
+gem 'rubocop', require: false
+gem 'rubocop-i18n'
+gem 'rubocop-rspec'

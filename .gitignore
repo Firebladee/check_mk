@@ -2,6 +2,8 @@ pkg
 coverage
 .bundle/
 Gemfile.lock
+spec/fixtures
+.kitchen/
 
 ## VIM
 *.swp

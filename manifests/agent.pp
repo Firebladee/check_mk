@@ -14,7 +14,7 @@ define check_mk::agent (
 
   #TODO: Add details for different os
   case $::osfamily {
-    RedHat:{
+    'RedHat':{
       file { "/tmp/${check_mk_agent}":
         ensure => present,
         path   => "/tmp/${check_mk_agent}",
@@ -28,7 +28,7 @@ define check_mk::agent (
         require => [File["/tmp/${check_mk_agent}"],Package['xinetd']],
       }
     }
-    Debian:{ package { 'check-mk-agent': ensure => latest}}
+    'Debian':{ package { 'check-mk-agent': ensure => latest}}
     default: {notify{'OS not support for check_mk agent':}}
   }
 
